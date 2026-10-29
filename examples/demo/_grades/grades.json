@@ -1,0 +1,25 @@
+{
+ "disciplines": {
+  "АСД": {
+   "name": "Алгоритми та структури даних",
+   "course_id": "0",
+   "credits": 5.0,
+   "final": 94.0,
+   "moodle": null
+  },
+  "БД": {
+   "name": "Організація баз даних",
+   "course_id": "0",
+   "credits": 4.0,
+   "final": 81.0,
+   "moodle": null
+  },
+  "ВЕБ": {
+   "name": "Вебтехнології",
+   "course_id": "0",
+   "credits": 4.0,
+   "final": 88.0,
+   "moodle": null
+  }
+ }
+}

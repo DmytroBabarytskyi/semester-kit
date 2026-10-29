@@ -1,0 +1,126 @@
+{
+ "updated": "2026-10-29",
+ "rule": "Робота, видана на занятті N, здається до початку заняття N+1 і на ньому захищається. Якщо в LMS є свій дедлайн – береться раніший з двох.",
+ "disciplines": [
+  {
+   "key": "АСД",
+   "name": "Алгоритми та структури даних",
+   "folder": "АСД",
+   "schedule_abbr": "АСД",
+   "credits": 5,
+   "dl": "https://lms.example.edu.ua/course/view.php?id=0",
+   "works": [
+    {
+     "id": "ЛБ1",
+     "title": "Сортування: порівняльний аналіз",
+     "issued": 1,
+     "dl": null,
+     "status": "defended",
+     "url": "https://lms.example.edu.ua/mod/assign/view.php?id=0"
+    },
+    {
+     "id": "ЛБ2",
+     "title": "Хеш-таблиці",
+     "issued": 2,
+     "dl": "2026-10-27T23:59",
+     "status": "todo",
+     "url": "https://lms.example.edu.ua/mod/assign/view.php?id=0"
+    },
+    {
+     "id": "ЛБ3",
+     "title": "Графи: найкоротші шляхи",
+     "issued": 3,
+     "dl": null,
+     "status": "todo",
+     "url": "https://lms.example.edu.ua/mod/assign/view.php?id=0"
+    },
+    {
+     "id": "ЛБ4",
+     "title": "Динамічне програмування",
+     "issued": 4,
+     "dl": null,
+     "status": "todo",
+     "url": "https://lms.example.edu.ua/mod/assign/view.php?id=0"
+    }
+   ]
+  },
+  {
+   "key": "БД",
+   "name": "Організація баз даних",
+   "folder": "БД",
+   "schedule_abbr": "БД",
+   "credits": 4,
+   "dl": "https://lms.example.edu.ua/course/view.php?id=0",
+   "works": [
+    {
+     "id": "ПЗ1",
+     "title": "ER-модель предметної області",
+     "issued": 1,
+     "dl": null,
+     "status": "submitted",
+     "url": "https://lms.example.edu.ua/mod/assign/view.php?id=0"
+    },
+    {
+     "id": "ПЗ2",
+     "title": "Нормалізація до 3НФ",
+     "issued": 2,
+     "dl": null,
+     "status": "todo",
+     "url": "https://lms.example.edu.ua/mod/assign/view.php?id=0"
+    },
+    {
+     "id": "ПЗ3",
+     "title": "SQL-запити і представлення",
+     "issued": 3,
+     "dl": null,
+     "status": "todo",
+     "url": "https://lms.example.edu.ua/mod/assign/view.php?id=0"
+    },
+    {
+     "id": "Курсова",
+     "title": "Курсова робота: БД інтернет-магазину",
+     "issued": null,
+     "dl": "2026-12-18T23:59",
+     "status": "todo",
+     "url": "https://lms.example.edu.ua/mod/assign/view.php?id=0",
+     "defense": false,
+     "note": "Терміни – у бланку завдання від керівника"
+    }
+   ]
+  },
+  {
+   "key": "ВЕБ",
+   "name": "Вебтехнології",
+   "folder": "ВЕБ",
+   "schedule_abbr": "ВЕБ",
+   "credits": 4,
+   "dl": "https://lms.example.edu.ua/course/view.php?id=0",
+   "works": [
+    {
+     "id": "ПЗ1",
+     "title": "Адаптивна верстка",
+     "issued": 1,
+     "dl": null,
+     "status": "submitted",
+     "url": "https://lms.example.edu.ua/mod/assign/view.php?id=0"
+    },
+    {
+     "id": "ПЗ2",
+     "title": "REST API на FastAPI",
+     "issued": 2,
+     "dl": null,
+     "status": "todo",
+     "url": "https://lms.example.edu.ua/mod/assign/view.php?id=0"
+    },
+    {
+     "id": "ПЗ3",
+     "title": "Клієнт на React",
+     "issued": 3,
+     "dl": null,
+     "status": "todo",
+     "url": "https://lms.example.edu.ua/mod/assign/view.php?id=0"
+    }
+   ]
+  }
+ ]
+}

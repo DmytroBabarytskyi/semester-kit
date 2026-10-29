@@ -1,0 +1,177 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//IV kurs//Kalendar zdachi//UK
+CALSCALE:GREGORIAN
+X-WR-CALNAME:Здача робіт — IV курс
+X-WR-TIMEZONE:Europe/Kyiv
+BEGIN:VEVENT
+UID:&#1040;&#1057;&#1044;-&#1051;&#1041;2@iv-kurs
+DTSTAMP:20261029T173926Z
+DTSTART:20261019T060000Z
+DTEND:20261019T063000Z
+SUMMARY:⏰ АСД ЛБ2 — здати
+DESCRIPTION:Хеш-таблиці\nЗдати до: 19.10.2026 09:30 (пр
+ авило)\nДедлайн DL: 27.10.2026 23:59\nЗахист: 19.10.2026
+  09:30\nhttps://lms.example.edu.ua/mod/assign/view.php?id=0
+URL:https://lms.example.edu.ua/mod/assign/view.php?id=0
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:АСД ЛБ2
+TRIGGER:-P2D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:АСД ЛБ2
+TRIGGER:-PT3H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:&#1040;&#1057;&#1044;-&#1051;&#1041;3@iv-kurs
+DTSTAMP:20261029T173926Z
+DTSTART:20261102T070000Z
+DTEND:20261102T073000Z
+SUMMARY:⏰ АСД ЛБ3 — здати
+DESCRIPTION:Графи: найкоротші шляхи\nЗдати до: 0
+ 2.11.2026 09:30 (правило)\nЗахист: 02.11.2026 09:30\nhttps://
+ lms.example.edu.ua/mod/assign/view.php?id=0
+URL:https://lms.example.edu.ua/mod/assign/view.php?id=0
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:АСД ЛБ3
+TRIGGER:-P2D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:АСД ЛБ3
+TRIGGER:-PT3H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:&#1040;&#1057;&#1044;-&#1051;&#1041;4@iv-kurs
+DTSTAMP:20261029T173926Z
+DTSTART:20261116T070000Z
+DTEND:20261116T073000Z
+SUMMARY:⏰ АСД ЛБ4 — здати
+DESCRIPTION:Динамічне програмування\nЗдати до:
+  16.11.2026 09:30 (правило)\nЗахист: 16.11.2026 09:30\nhttps:
+ //lms.example.edu.ua/mod/assign/view.php?id=0
+URL:https://lms.example.edu.ua/mod/assign/view.php?id=0
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:АСД ЛБ4
+TRIGGER:-P2D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:АСД ЛБ4
+TRIGGER:-PT3H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:&#1041;&#1044;-&#1055;&#1047;2@iv-kurs
+DTSTAMP:20261029T173926Z
+DTSTART:20261021T074500Z
+DTEND:20261021T081500Z
+SUMMARY:⏰ БД ПЗ2 — здати
+DESCRIPTION:Нормалізація до 3НФ\nЗдати до: 21.10.202
+ 6 11:15 (правило)\nЗахист: 21.10.2026 11:15\nhttps://lms.exam
+ ple.edu.ua/mod/assign/view.php?id=0
+URL:https://lms.example.edu.ua/mod/assign/view.php?id=0
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:БД ПЗ2
+TRIGGER:-P2D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:БД ПЗ2
+TRIGGER:-PT3H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:&#1041;&#1044;-&#1055;&#1047;3@iv-kurs
+DTSTAMP:20261029T173926Z
+DTSTART:20261104T084500Z
+DTEND:20261104T091500Z
+SUMMARY:⏰ БД ПЗ3 — здати
+DESCRIPTION:SQL-запити і представлення\nЗдати до
+ : 04.11.2026 11:15 (правило)\nЗахист: 04.11.2026 11:15\nhttps
+ ://lms.example.edu.ua/mod/assign/view.php?id=0
+URL:https://lms.example.edu.ua/mod/assign/view.php?id=0
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:БД ПЗ3
+TRIGGER:-P2D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:БД ПЗ3
+TRIGGER:-PT3H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:&#1041;&#1044;-&#1050;&#1091;&#1088;&#1089;&#1086;&#1074;&#1072;@iv-kur
+ s
+DTSTAMP:20261029T173926Z
+DTSTART:20261218T212900Z
+DTEND:20261218T215900Z
+SUMMARY:⏰ БД Курсова — здати
+DESCRIPTION:Курсова робота: БД інтернет-магази
+ ну\nЗдати до: 18.12.2026 23:59 (DL)\nДедлайн DL: 18.12.202
+ 6 23:59\nТерміни – у бланку завдання від кер
+ івника\nhttps://lms.example.edu.ua/mod/assign/view.php?id=0
+URL:https://lms.example.edu.ua/mod/assign/view.php?id=0
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:БД Курсова
+TRIGGER:-P2D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:БД Курсова
+TRIGGER:-PT3H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:&#1042;&#1045;&#1041;-&#1055;&#1047;2@iv-kurs
+DTSTAMP:20261029T173926Z
+DTSTART:20261022T112500Z
+DTEND:20261022T115500Z
+SUMMARY:⏰ ВЕБ ПЗ2 — здати
+DESCRIPTION:REST API на FastAPI\nЗдати до: 22.10.2026 14:55 (пр
+ авило)\nЗахист: 22.10.2026 14:55\nhttps://lms.example.edu.ua/mo
+ d/assign/view.php?id=0
+URL:https://lms.example.edu.ua/mod/assign/view.php?id=0
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ВЕБ ПЗ2
+TRIGGER:-P2D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ВЕБ ПЗ2
+TRIGGER:-PT3H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:&#1042;&#1045;&#1041;-&#1055;&#1047;3@iv-kurs
+DTSTAMP:20261029T173926Z
+DTSTART:20261105T122500Z
+DTEND:20261105T125500Z
+SUMMARY:⏰ ВЕБ ПЗ3 — здати
+DESCRIPTION:Клієнт на React\nЗдати до: 05.11.2026 14:55 (п
+ равило)\nЗахист: 05.11.2026 14:55\nhttps://lms.example.edu.ua/
+ mod/assign/view.php?id=0
+URL:https://lms.example.edu.ua/mod/assign/view.php?id=0
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ВЕБ ПЗ3
+TRIGGER:-P2D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ВЕБ ПЗ3
+TRIGGER:-PT3H
+END:VALARM
+END:VEVENT
+END:VCALENDAR

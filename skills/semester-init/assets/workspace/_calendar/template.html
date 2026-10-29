@@ -22,7 +22,7 @@ body { margin: 0; background: var(--bg); color: var(--text); font: 15px/1.45 "Se
 .wrap { max-width: 980px; margin: 0 auto; padding: 24px 16px 64px; }
 h1 { font-size: 26px; margin: 0 0 4px; }
 .sub { color: var(--muted); margin: 0 0 20px; }
-.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; margin-bottom: 18px; }
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin-bottom: 18px; }
 .stat { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; }
 .stat b { display: block; font-size: 22px; }
 .stat span { color: var(--muted); font-size: 13px; }
@@ -36,6 +36,8 @@ label.toggle { margin-left: auto; color: var(--muted); font-size: 13px; display:
 .week h2 { font-size: 15px; margin: 0; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
 .week.now h2 { color: var(--accent); }
 .week .tag { font-size: 12px; color: var(--accent); }
+.item > div { min-width: 0; }
+.meta span { overflow-wrap: anywhere; }
 .item { display: grid; grid-template-columns: 92px 1fr; gap: 14px; background: var(--card); border: 1px solid var(--line);
   border-left: 4px solid var(--c); border-radius: 10px; padding: 12px 14px; margin-bottom: 8px; }
 .item.done { opacity: .55; }
@@ -55,6 +57,7 @@ label.toggle { margin-left: auto; color: var(--muted); font-size: 13px; display:
 .note { font-size: 13px; margin-top: 4px; }
 .empty { color: var(--muted); padding: 20px 0; }
 @media (max-width: 560px) {
+  .stats { grid-template-columns: 1fr 1fr; }
   .item { grid-template-columns: 1fr; gap: 6px; }
   .when b { display: inline; font-size: 17px; margin-right: 6px; }
   label.toggle { margin-left: 0; }
@@ -96,11 +99,11 @@ function badge(r) {
 
 function card(r) {
   const due = d(r.due), meta = [];
-  const basis = { 'DL': 'дедлайн DL', 'правило': 'за правилом занять', 'орієнтир': 'орієнтир, офіційного дедлайну немає' };
+  const basis = { 'DL': 'дедлайн LMS', 'правило': 'за правилом занять', 'орієнтир': 'орієнтир, офіційного дедлайну немає' };
   if (r.due) meta.push(`здати до: ${full(due)} · ${basis[r.basis]}`);
-  if (r.dl && r.basis === 'правило') meta.push(`DL: ${full(d(r.dl))}`);
+  if (r.dl && r.basis === 'правило') meta.push(`LMS: ${full(d(r.dl))}`);
   if (r.defense) meta.push(`захист: ${full(d(r.defense))}`);
-  if (r.url) meta.push(`<a href="${r.url}" target="_blank" rel="noopener">DL ↗</a>`);
+  if (r.url) meta.push(`<a href="${r.url}" target="_blank" rel="noopener">LMS ↗</a>`);
   meta.push(`<a href="${encodeURI(r.folder)}/">папка</a>`);
   return `<div class="item${isDone(r) ? ' done' : ''}" style="--c:${r.color}">
     <div class="when">${due ? `<b>${fmt(due)}</b><span>${DAYS[due.getDay()]} ${hm(due)}</span>` : '<b>—</b>'}</div>
@@ -157,7 +160,7 @@ function filters() {
   };
 }
 
-document.getElementById('sub').textContent = `${DATA.rule} Дані з DL і розкладу станом на ${DATA.updated.split('-').reverse().join('.')}.`;
+document.getElementById('sub').textContent = `${DATA.rule} Дані з LMS і розкладу станом на ${DATA.updated.split('-').reverse().join('.')}.`;
 filters();
 render();
 </script>

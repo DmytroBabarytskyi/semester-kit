@@ -13,6 +13,11 @@ grading criteria, and rehearse the defense.
 Built by a Computer Science student at Kharkiv National University of Radio Electronics (NURE) and tested on
 NURE's Moodle (`dl.nure.ua`) and CIST timetable; designed to work with any Moodle and any `.ics` timetable.
 
+<p align="center"><img src="docs/img/calendar.png" width="720" alt="Deadline calendar"></p>
+<p align="center"><sub>Deadline calendar (light/dark theme, filters by course) and the class reminder popup.
+Generated from the fictional <a href="examples/demo">demo workspace</a> (<code>python examples/make_demo.py</code>).</sub></p>
+<p align="center"><img src="docs/img/reminder.png" width="360" alt="Class reminder">&nbsp;&nbsp;<img src="docs/img/calendar-dark.png" width="300" alt="Dark theme"></p>
+
 ## Skills
 
 | Skill | What it does |

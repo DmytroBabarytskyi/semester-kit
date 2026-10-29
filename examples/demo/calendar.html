@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Календар здачі робіт</title>
+<style>
+:root {
+  --bg: #f6f7f9; --card: #ffffff; --text: #111827; --muted: #6b7280; --line: #e5e7eb;
+  --ok: #15803d; --ok-bg: #dcfce7; --warn: #b45309; --warn-bg: #fef3c7; --bad: #b91c1c; --bad-bg: #fee2e2;
+  --accent: #2563eb;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f1115; --card: #171a21; --text: #e5e7eb; --muted: #9ca3af; --line: #2a2f3a;
+    --ok: #4ade80; --ok-bg: #12301f; --warn: #fbbf24; --warn-bg: #33270b; --bad: #f87171; --bad-bg: #3a1414;
+    --accent: #60a5fa;
+  }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text); font: 15px/1.45 "Segoe UI", system-ui, sans-serif; }
+.wrap { max-width: 980px; margin: 0 auto; padding: 24px 16px 64px; }
+h1 { font-size: 26px; margin: 0 0 4px; }
+.sub { color: var(--muted); margin: 0 0 20px; }
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin-bottom: 18px; }
+.stat { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; }
+.stat b { display: block; font-size: 22px; }
+.stat span { color: var(--muted); font-size: 13px; }
+.filters { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 22px; }
+.chip { border: 1px solid var(--line); background: var(--card); color: var(--text); border-radius: 999px; padding: 5px 12px;
+  font: inherit; font-size: 13px; cursor: pointer; display: inline-flex; gap: 6px; align-items: center; }
+.chip .dot { width: 9px; height: 9px; border-radius: 50%; }
+.chip.off { opacity: .4; }
+label.toggle { margin-left: auto; color: var(--muted); font-size: 13px; display: flex; gap: 6px; align-items: center; cursor: pointer; }
+.week { margin: 26px 0 8px; display: flex; align-items: baseline; gap: 10px; }
+.week h2 { font-size: 15px; margin: 0; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
+.week.now h2 { color: var(--accent); }
+.week .tag { font-size: 12px; color: var(--accent); }
+.item > div { min-width: 0; }
+.meta span { overflow-wrap: anywhere; }
+.item { display: grid; grid-template-columns: 92px 1fr; gap: 14px; background: var(--card); border: 1px solid var(--line);
+  border-left: 4px solid var(--c); border-radius: 10px; padding: 12px 14px; margin-bottom: 8px; }
+.item.done { opacity: .55; }
+.when b { display: block; font-size: 20px; }
+.when span { color: var(--muted); font-size: 13px; }
+.top { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.disc { font-weight: 700; color: var(--c); }
+.wid { font-weight: 600; }
+.badge { font-size: 12px; border-radius: 6px; padding: 1px 8px; }
+.b-ok { color: var(--ok); background: var(--ok-bg); }
+.b-warn { color: var(--warn); background: var(--warn-bg); }
+.b-bad { color: var(--bad); background: var(--bad-bg); }
+.b-muted { color: var(--muted); border: 1px solid var(--line); }
+.title { margin: 3px 0 4px; }
+.meta { color: var(--muted); font-size: 13px; display: flex; flex-wrap: wrap; gap: 4px 14px; }
+.meta a { color: var(--accent); text-decoration: none; }
+.note { font-size: 13px; margin-top: 4px; }
+.empty { color: var(--muted); padding: 20px 0; }
+@media (max-width: 560px) {
+  .stats { grid-template-columns: 1fr 1fr; }
+  .item { grid-template-columns: 1fr; gap: 6px; }
+  .when b { display: inline; font-size: 17px; margin-right: 6px; }
+  label.toggle { margin-left: 0; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Календар здачі робіт</h1>
+  <p class="sub" id="sub"></p>
+  <div class="stats" id="stats"></div>
+  <div class="filters" id="filters"></div>
+  <div id="list"></div>
+</div>
+<script>
+const DATA = {"rows": [{"disc": "АСД", "name": "Алгоритми та структури даних", "folder": "АСД", "color": "#2563eb", "id": "ЛБ1", "title": "Сортування: порівняльний аналіз", "status": "defended", "due": "2026-10-05T09:30", "basis": "правило", "rule": "2026-10-05T09:30", "dl": null, "defense": "2026-10-05T09:30", "url": "https://lms.example.edu.ua/mod/assign/view.php?id=0", "note": ""}, {"disc": "АСД", "name": "Алгоритми та структури даних", "folder": "АСД", "color": "#2563eb", "id": "ЛБ2", "title": "Хеш-таблиці", "status": "todo", "due": "2026-10-19T09:30", "basis": "правило", "rule": "2026-10-19T09:30", "dl": "2026-10-27T23:59", "defense": "2026-10-19T09:30", "url": "https://lms.example.edu.ua/mod/assign/view.php?id=0", "note": ""}, {"disc": "АСД", "name": "Алгоритми та структури даних", "folder": "АСД", "color": "#2563eb", "id": "ЛБ3", "title": "Графи: найкоротші шляхи", "status": "todo", "due": "2026-11-02T09:30", "basis": "правило", "rule": "2026-11-02T09:30", "dl": null, "defense": "2026-11-02T09:30", "url": "https://lms.example.edu.ua/mod/assign/view.php?id=0", "note": ""}, {"disc": "АСД", "name": "Алгоритми та структури даних", "folder": "АСД", "color": "#2563eb", "id": "ЛБ4", "title": "Динамічне програмування", "status": "todo", "due": "2026-11-16T09:30", "basis": "правило", "rule": "2026-11-16T09:30", "dl": null, "defense": "2026-11-16T09:30", "url": "https://lms.example.edu.ua/mod/assign/view.php?id=0", "note": ""}, {"disc": "БД", "name": "Організація баз даних", "folder": "БД", "color": "#0d9488", "id": "ПЗ1", "title": "ER-модель предметної області", "status": "submitted", "due": "2026-10-07T11:15", "basis": "правило", "rule": "2026-10-07T11:15", "dl": null, "defense": "2026-10-07T11:15", "url": "https://lms.example.edu.ua/mod/assign/view.php?id=0", "note": ""}, {"disc": "БД", "name": "Організація баз даних", "folder": "БД", "color": "#0d9488", "id": "ПЗ2", "title": "Нормалізація до 3НФ", "status": "todo", "due": "2026-10-21T11:15", "basis": "правило", "rule": "2026-10-21T11:15", "dl": null, "defense": "2026-10-21T11:15", "url": "https://lms.example.edu.ua/mod/assign/view.php?id=0", "note": ""}, {"disc": "БД", "name": "Організація баз даних", "folder": "БД", "color": "#0d9488", "id": "ПЗ3", "title": "SQL-запити і представлення", "status": "todo", "due": "2026-11-04T11:15", "basis": "правило", "rule": "2026-11-04T11:15", "dl": null, "defense": "2026-11-04T11:15", "url": "https://lms.example.edu.ua/mod/assign/view.php?id=0", "note": ""}, {"disc": "БД", "name": "Організація баз даних", "folder": "БД", "color": "#0d9488", "id": "Курсова", "title": "Курсова робота: БД інтернет-магазину", "status": "todo", "due": "2026-12-18T23:59", "basis": "DL", "rule": null, "dl": "2026-12-18T23:59", "defense": null, "url": "https://lms.example.edu.ua/mod/assign/view.php?id=0", "note": "Терміни – у бланку завдання від керівника"}, {"disc": "ВЕБ", "name": "Вебтехнології", "folder": "ВЕБ", "color": "#c026d3", "id": "ПЗ1", "title": "Адаптивна верстка", "status": "submitted", "due": "2026-10-08T14:55", "basis": "правило", "rule": "2026-10-08T14:55", "dl": null, "defense": "2026-10-08T14:55", "url": "https://lms.example.edu.ua/mod/assign/view.php?id=0", "note": ""}, {"disc": "ВЕБ", "name": "Вебтехнології", "folder": "ВЕБ", "color": "#c026d3", "id": "ПЗ2", "title": "REST API на FastAPI", "status": "todo", "due": "2026-10-22T14:55", "basis": "правило", "rule": "2026-10-22T14:55", "dl": null, "defense": "2026-10-22T14:55", "url": "https://lms.example.edu.ua/mod/assign/view.php?id=0", "note": ""}, {"disc": "ВЕБ", "name": "Вебтехнології", "folder": "ВЕБ", "color": "#c026d3", "id": "ПЗ3", "title": "Клієнт на React", "status": "todo", "due": "2026-11-05T14:55", "basis": "правило", "rule": "2026-11-05T14:55", "dl": null, "defense": "2026-11-05T14:55", "url": "https://lms.example.edu.ua/mod/assign/view.php?id=0", "note": ""}], "updated": "2026-10-29", "rule": "Робота, видана на занятті N, здається до початку заняття N+1 і на ньому захищається. Якщо в LMS є свій дедлайн – береться раніший з двох."};
+const MONTHS = ['січ', 'лют', 'бер', 'кві', 'тра', 'чер', 'лип', 'сер', 'вер', 'жов', 'лис', 'гру'];
+const DAYS = ['нд', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб'];
+const now = new Date();
+const state = { off: new Set(), hideDone: true };
+try { Object.assign(state, { hideDone: localStorage.getItem('hideDone') !== '0' }); } catch (e) {}
+
+const d = s => s ? new Date(s) : null;
+const fmt = t => `${t.getDate()} ${MONTHS[t.getMonth()]}`;
+const hm = t => t.toTimeString().slice(0, 5);
+const full = t => `${DAYS[t.getDay()]}, ${fmt(t)} ${hm(t)}`;
+const isDone = r => r.status === 'submitted' || r.status === 'defended';
+const monday = t => { const m = new Date(t); m.setHours(0, 0, 0, 0); m.setDate(m.getDate() - ((m.getDay() + 6) % 7)); return m; };
+
+function badge(r) {
+  if (r.status === 'defended') return '<span class="badge b-ok">захищено</span>';
+  if (r.status === 'submitted') return '<span class="badge b-ok">здано</span>';
+  if (!r.due) return '<span class="badge b-muted">без дати</span>';
+  const days = Math.ceil((d(r.due) - now) / 864e5);
+  if (days < 0) return '<span class="badge b-bad">прострочено</span>';
+  if (days <= 3) return `<span class="badge b-warn">${days === 0 ? 'сьогодні' : 'через ' + days + ' дн.'}</span>`;
+  return `<span class="badge b-muted">через ${days} дн.</span>`;
+}
+
+function card(r) {
+  const due = d(r.due), meta = [];
+  const basis = { 'DL': 'дедлайн LMS', 'правило': 'за правилом занять', 'орієнтир': 'орієнтир, офіційного дедлайну немає' };
+  if (r.due) meta.push(`здати до: ${full(due)} · ${basis[r.basis]}`);
+  if (r.dl && r.basis === 'правило') meta.push(`LMS: ${full(d(r.dl))}`);
+  if (r.defense) meta.push(`захист: ${full(d(r.defense))}`);
+  if (r.url) meta.push(`<a href="${r.url}" target="_blank" rel="noopener">LMS ↗</a>`);
+  meta.push(`<a href="${encodeURI(r.folder)}/">папка</a>`);
+  return `<div class="item${isDone(r) ? ' done' : ''}" style="--c:${r.color}">
+    <div class="when">${due ? `<b>${fmt(due)}</b><span>${DAYS[due.getDay()]} ${hm(due)}</span>` : '<b>—</b>'}</div>
+    <div>
+      <div class="top"><span class="disc">${r.disc}</span><span class="wid">${r.id}</span>${badge(r)}</div>
+      <div class="title">${r.title}</div>
+      <div class="meta">${meta.map(m => `<span>${m}</span>`).join('')}</div>
+      ${r.note ? `<div class="note">${r.note}</div>` : ''}
+    </div></div>`;
+}
+
+function render() {
+  const rows = DATA.rows.filter(r => !state.off.has(r.disc) && !(state.hideDone && isDone(r)));
+  const dated = rows.filter(r => r.due).sort((a, b) => d(a.due) - d(b.due));
+  const undated = rows.filter(r => !r.due);
+  let html = '', lastWeek = null;
+  const thisWeek = monday(now).getTime();
+  for (const r of dated) {
+    const w = monday(d(r.due)).getTime();
+    if (w !== lastWeek) {
+      const end = new Date(w + 6 * 864e5);
+      html += `<div class="week${w === thisWeek ? ' now' : ''}"><h2>${fmt(new Date(w))} — ${fmt(end)}</h2>${w === thisWeek ? '<span class="tag">цей тиждень</span>' : ''}</div>`;
+      lastWeek = w;
+    }
+    html += card(r);
+  }
+  if (undated.length) html += '<div class="week"><h2>Без дати</h2></div>' + undated.map(card).join('');
+  document.getElementById('list').innerHTML = html || '<div class="empty">Нічого не вибрано.</div>';
+
+  const open = DATA.rows.filter(r => !isDone(r) && r.due);
+  const overdue = open.filter(r => d(r.due) < now).length;
+  const week = open.filter(r => d(r.due) >= now && d(r.due) - now < 7 * 864e5).length;
+  const next = open.filter(r => d(r.due) >= now).sort((a, b) => d(a.due) - d(b.due))[0];
+  document.getElementById('stats').innerHTML = `
+    <div class="stat"><b>${next ? fmt(d(next.due)) : '—'}</b><span>найближче: ${next ? next.disc + ' ' + next.id : 'нічого'}</span></div>
+    <div class="stat"><b>${week}</b><span>здати за 7 днів</span></div>
+    <div class="stat"><b style="color:${overdue ? 'var(--bad)' : 'inherit'}">${overdue}</b><span>прострочено</span></div>
+    <div class="stat"><b>${DATA.rows.filter(isDone).length} / ${DATA.rows.length}</b><span>здано</span></div>`;
+}
+
+function filters() {
+  const discs = [...new Map(DATA.rows.map(r => [r.disc, r.color])).entries()];
+  const el = document.getElementById('filters');
+  el.innerHTML = discs.map(([k, c]) => `<button class="chip" data-k="${k}"><span class="dot" style="background:${c}"></span>${k}</button>`).join('')
+    + `<label class="toggle"><input type="checkbox" id="hd" ${state.hideDone ? 'checked' : ''}> сховати здані</label>`;
+  el.querySelectorAll('.chip').forEach(b => b.onclick = () => {
+    state.off.has(b.dataset.k) ? state.off.delete(b.dataset.k) : state.off.add(b.dataset.k);
+    b.classList.toggle('off'); render();
+  });
+  document.getElementById('hd').onchange = e => {
+    state.hideDone = e.target.checked;
+    try { localStorage.setItem('hideDone', state.hideDone ? '1' : '0'); } catch (err) {}
+    render();
+  };
+}
+
+document.getElementById('sub').textContent = `${DATA.rule} Дані з LMS і розкладу станом на ${DATA.updated.split('-').reverse().join('.')}.`;
+filters();
+render();
+</script>
+</body>
+</html>

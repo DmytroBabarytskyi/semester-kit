@@ -16,6 +16,11 @@ semester-kit перетворює порожню теку на навчальн�
 Зроблено студентом ХНУРЕ (Комп'ютерні науки). Перевірено на DL ХНУРЕ (Moodle) і розкладі CIST. Працює з будь-яким
 Moodle і будь-яким розкладом у `.ics`.
 
+<p align="center"><img src="docs/img/calendar.png" width="720" alt="Календар здачі"></p>
+<p align="center"><sub>Календар здачі (світла/темна тема, фільтри за дисциплінами) і вікно нагадувача.
+Згенеровано з вигаданого <a href="examples/demo">демо-воркспейсу</a> (<code>python examples/make_demo.py</code>).</sub></p>
+<p align="center"><img src="docs/img/reminder.png" width="360" alt="Нагадувач">&nbsp;&nbsp;<img src="docs/img/calendar-dark.png" width="300" alt="Темна тема"></p>
+
 ## Скіли
 
 | Скіл | Що робить |
