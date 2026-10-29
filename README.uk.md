@@ -55,7 +55,7 @@ Claude читає Moodle у вашому браузері під вашим ло
 проходите ви. Переконайтеся, що правила вашої LMS це дозволяють.
 
 ```powershell
-git clone https://github.com/<you>/semester-kit
+git clone https://github.com/DmytroBabarytskyi/semester-kit
 cd semester-kit
 .\install.ps1
 ```

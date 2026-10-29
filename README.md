@@ -58,7 +58,7 @@ policy on AI use, and disclose it where required. You are responsible for what y
 ## Install
 
 ```powershell
-git clone https://github.com/<you>/semester-kit
+git clone https://github.com/DmytroBabarytskyi/semester-kit
 cd semester-kit
 .\install.ps1          # copies skills\* to %USERPROFILE%\.claude\skills
 ```
